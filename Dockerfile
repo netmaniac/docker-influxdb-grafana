@@ -51,6 +51,8 @@ RUN rm /var/lib/apt/lists/* -vf \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+#add radar plugin
+RUN grafana-cli plugins install snuids-radar-panel
 # Configure Supervisord and base env
 COPY supervisord/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY bash/profile .profile
